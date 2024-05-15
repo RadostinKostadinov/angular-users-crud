@@ -7,7 +7,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/en/download)
-- [Angular CLI](https://github.com/angular/)
 
 ### 1. Install required dependencies
 
@@ -15,7 +14,7 @@ Run `npm install` in your project directory
 
 ### 2. Start JSON Server
 
-Run `npx json-server --watch .\db.json` for a mock REST API.
+Run `npx json-server --watch ./db.json` for a mock REST API.
 
 - json-server will use port 3000
 
