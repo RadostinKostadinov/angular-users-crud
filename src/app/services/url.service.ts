@@ -11,7 +11,6 @@ export class UrlService {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.setPreviousUrl(this.router.url);
-        console.log(this.previousUrl(), this.router);
       }
     });
   }

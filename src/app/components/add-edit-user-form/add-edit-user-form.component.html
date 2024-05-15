@@ -144,71 +144,71 @@
       </div>
     </div>
     <!-- BIRTH DATE -->
-    <div class="form-group col-12">
-      <div class="" formGroupName="birthDate">
-        <label for="year">Date of birth</label>
-        <div class="input-group">
-          <ng-select
-            name="year"
-            class="overwrite-ng-select"
-            style="width: 120px"
-            [items]="selectYears"
-            bindLabel="label"
-            bindValue="value"
-            [clearable]="false"
-            formControlName="year"
-            (change)="onYearSelect()"
-            (focus)="onFocusSelect('year')"
-          >
-          </ng-select>
-          <ng-select
-            name="month"
-            class="overwrite-ng-select"
-            style="width: 120px"
-            [items]="selectMonths"
-            bindLabel="label"
-            bindValue="value"
-            [clearable]="false"
-            formControlName="month"
-            (change)="onMonthSelect($event)"
-            (focus)="onFocusSelect('month')"
-            [selectOnTab]="true"
-          >
-          </ng-select>
-          <ng-select
-            name="day"
-            class="overwrite-ng-select"
-            style="width: 120px"
-            [items]="selectDays"
-            bindLabel="label"
-            bindValue="value"
-            [clearable]="false"
-            formControlName="day"
-            (focus)="onFocusSelect('day')"
-            (change)="onDaySelect($event)"
-            [selectOnTab]="true"
-          >
-          </ng-select>
-        </div>
-        <div
-          class="text-danger"
-          *ngIf="
-            isSubmitted &&
-            (userFormControl.birthDate.controls.year.errors ||
-              userFormControl.birthDate.controls.month.errors ||
-              userFormControl.birthDate.controls.day.errors)
-          "
-        >
-          <sup>*</sup>Field is required.
-        </div>
-        <div
-          class="text-danger"
-          *ngIf="isSubmitted && form.errors?.['birthDate'] && !userFormControl.birthDate.controls.year.errors &&
+    <label for="year">Date of birth</label>
+    <div class="form-group col-md-2 col-12 mt-0" formGroupName="birthDate">
+      <ng-select
+        name="year"
+        class="overwrite-ng-select"
+        [items]="selectYears"
+        bindLabel="label"
+        bindValue="value"
+        [clearable]="false"
+        formControlName="year"
+        (change)="onYearSelect()"
+        (focus)="onFocusSelect('year')"
+      >
+      </ng-select>
+    </div>
+    <div
+      class="form-group col-md-2 col-12 mt-md-0 my-3-md"
+      formGroupName="birthDate"
+    >
+      <ng-select
+        name="month"
+        class="overwrite-ng-select"
+        [items]="selectMonths"
+        bindLabel="label"
+        bindValue="value"
+        [clearable]="false"
+        formControlName="month"
+        (change)="onMonthSelect($event)"
+        (focus)="onFocusSelect('month')"
+        [selectOnTab]="true"
+      >
+      </ng-select>
+    </div>
+    <div class="form-group col-md-2 col-12 mt-md-0" formGroupName="birthDate">
+      <ng-select
+        name="day"
+        class="overwrite-ng-select"
+        [items]="selectDays"
+        bindLabel="label"
+        bindValue="value"
+        [clearable]="false"
+        formControlName="day"
+        (focus)="onFocusSelect('day')"
+        (change)="onDaySelect($event)"
+        [selectOnTab]="true"
+      >
+      </ng-select>
+      <div
+        class="text-danger"
+        *ngIf="
+          isSubmitted &&
+          (userFormControl.birthDate.controls.year.errors ||
+            userFormControl.birthDate.controls.month.errors ||
+            userFormControl.birthDate.controls.day.errors)
+        "
+      >
+        <sup>*</sup>Field is required.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="isSubmitted && form.errors?.['birthDate'] && !userFormControl.birthDate.controls.year.errors &&
           !userFormControl.birthDate.controls.month.errors &&
           !userFormControl.birthDate.controls.day.errors"
-        >
-          <sup>*</sup>You can't select future date.
-        </div>
+      >
+        <sup>*</sup>You can't select future date.
       </div>
     </div>
     <button type="submit" class="btn btn-success mt-3">Submit</button>
