@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/en/download)
+- [Node.js](https://nodejs.org/en/download) (v10.5.0)
 
 ### 1. Install required dependencies
 
