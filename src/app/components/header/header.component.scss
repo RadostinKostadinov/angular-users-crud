@@ -1,0 +1,44 @@
+header {
+  height: 70px;
+  color: white;
+  background-color: black;
+
+  nav {
+    height: 100%;
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: black;
+    align-items: center;
+
+    a {
+      width: min-content;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    div {
+      justify-self: center;
+      display: flex;
+
+      li {
+        list-style-type: none;
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: normal;
+          margin: 0 10px;
+        }
+
+        .activated {
+          color: #dc3545;
+        }
+      }
+    }
+  }
+}

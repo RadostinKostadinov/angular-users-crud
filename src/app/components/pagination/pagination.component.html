@@ -1,0 +1,59 @@
+<div class="container my-3">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex w-100 justify-content-start align-items-center gap-1">
+        <button
+          role="button"
+          (click)="jumpToPage(paginationControls.firstPage)"
+          [disabled]="
+            paginationControls.currentPage === paginationControls.firstPage
+          "
+        >
+          <<
+        </button>
+        <button role="button" disabled>
+          {{ paginationControls.firstPage }}
+        </button>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex w-100 justify-content-center align-items-center gap-3">
+        <button
+          role="button"
+          (click)="jumpToPage(paginationControls.prevPage)"
+          [disabled]="paginationControls.currentPage === 1"
+        >
+          <
+        </button>
+        <button role="button" disabled>
+          {{ paginationControls.currentPage }}
+        </button>
+        <button
+          role="button"
+          (click)="jumpToPage(paginationControls.nextPage)"
+          [disabled]="
+            paginationControls.currentPage === paginationControls.lastPage
+          "
+        >
+          >
+        </button>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex w-100 justify-content-end align-items-center gap-1">
+        <button role="button" disabled>
+          {{ paginationControls.lastPage }}
+        </button>
+        <button
+          role="button"
+          (click)="jumpToPage(paginationControls.lastPage)"
+          [disabled]="
+            paginationControls.currentPage === paginationControls.lastPage
+          "
+        >
+          >>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@ng-select/ng-select/themes/default.theme.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import "../node_modules/ngx-toastr/toastr";
+
+.overwrite-ng-select.ng-select-focused {
+  border-color: rgba(126, 126, 126, 0.25) !important;
+}
+
+.overwrite-ng-select > div {
+  border-radius: 6px !important;
+  border-color: rgba(126, 126, 126, 0.25) !important;
+}
+
+.overwrite-ng-select div.ng-option {
+  border-bottom: 1px solid rgb(19 111 251 / 30%);
+}
+
+.overwrite-ng-select.ng-select-opened {
+  outline: 4px solid rgb(19 111 251 / 30%);
+  border-radius: 5px;
+}
+
+.overwrite-ng-select.ng-select-focused > div {
+  border-color: rgba(126, 126, 126, 0.25) !important;
+  box-shadow: none !important;
+}

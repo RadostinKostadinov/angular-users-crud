@@ -1,0 +1,228 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="container">
+  <div class="row gy-2">
+    <!-- FIRST NAME -->
+    <div class="form-group col-md-6 col-12">
+      <label for="firstName">First name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        placeholder="Enter first name..."
+        name="firstName"
+        formControlName="firstName"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+                  isSubmitted &&
+                  userFormControl.firstName.errors?.['required']
+                "
+      >
+        <sup>*</sup>Field is required.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="
+                    isSubmitted &&
+                    (userFormControl.firstName.errors?.['minlength'] || userFormControl.firstName.errors?.['maxlength'])
+                  "
+      >
+        <sup>*</sup>First name must be between 4 and 20 characters long.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="
+                  isSubmitted &&
+                  userFormControl.firstName.errors?.['pattern']
+                "
+      >
+        <sup>*</sup>First name must contain only letters. (A-z)
+      </div>
+    </div>
+    <!-- LAST NAME -->
+    <div class="form-group col-md-6 col-12">
+      <label for="lastName">Last name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        placeholder="Enter last name..."
+        name="lastName"
+        formControlName="lastName"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+        isSubmitted &&
+        userFormControl.lastName.errors?.['required']
+      "
+      >
+        <sup>*</sup>Field is required.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="
+        isSubmitted &&
+        (userFormControl.lastName.errors?.['minlength'] || userFormControl.lastName.errors?.['maxlength'])
+      "
+      >
+        <sup>*</sup>Last name must be between 4 and 20 characters long.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="
+        isSubmitted &&
+        userFormControl.lastName.errors?.['pattern']
+      "
+      >
+        <sup>*</sup>Last name must contain only letters. (A-z)
+      </div>
+    </div>
+    <!-- PROFESSION -->
+    <div class="form-group col-md-6 col-12">
+      <label for="profession">Profession</label>
+      <input
+        type="text"
+        class="form-control"
+        id="profession"
+        placeholder="Enter profession..."
+        name="profession"
+        formControlName="profession"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+              isSubmitted &&
+              userFormControl.profession.errors?.['required']
+            "
+      >
+        <sup>*</sup>Field is required.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="
+              isSubmitted &&
+              (userFormControl.profession.errors?.['minlength'] || userFormControl.profession.errors?.['maxlength'])
+            "
+      >
+        <sup>*</sup>Profession must be between 4 and 30 characters long.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="
+              isSubmitted &&
+              userFormControl.profession.errors?.['pattern']
+            "
+      >
+        <sup>*</sup>Profession can contain only letters and numbers. (A-z),(0-9)
+      </div>
+    </div>
+    <!-- GENDER -->
+    <div class="form-group col-md-6 col-12">
+      <label for="gender">Gender</label>
+      <ng-select
+        name="gender"
+        class="overwrite-ng-select"
+        [items]="genderTypes"
+        bindLabel="label"
+        bindValue="value"
+        [searchable]="false"
+        [clearable]="false"
+        formControlName="gender"
+        (change)="onGenderSelect()"
+        (focus)="onFocusSelect('gender')"
+      >
+      </ng-select>
+      <div
+        class="text-danger"
+        *ngIf="
+              isSubmitted &&
+              userFormControl.gender.errors?.['gender']
+            "
+      >
+        <sup>*</sup>Field is required.
+      </div>
+    </div>
+    <!-- BIRTH DATE -->
+    <div class="form-group col-12">
+      <div class="" formGroupName="birthDate">
+        <label for="year">Date of birth</label>
+        <div class="input-group">
+          <ng-select
+            name="year"
+            class="overwrite-ng-select"
+            style="width: 120px"
+            [items]="selectYears"
+            bindLabel="label"
+            bindValue="value"
+            [clearable]="false"
+            formControlName="year"
+            (change)="onYearSelect()"
+            (focus)="onFocusSelect('year')"
+          >
+          </ng-select>
+          <ng-select
+            name="month"
+            class="overwrite-ng-select"
+            style="width: 120px"
+            [items]="selectMonths"
+            bindLabel="label"
+            bindValue="value"
+            [clearable]="false"
+            formControlName="month"
+            (change)="onMonthSelect($event)"
+            (focus)="onFocusSelect('month')"
+            [selectOnTab]="true"
+          >
+          </ng-select>
+          <ng-select
+            name="day"
+            class="overwrite-ng-select"
+            style="width: 120px"
+            [items]="selectDays"
+            bindLabel="label"
+            bindValue="value"
+            [clearable]="false"
+            formControlName="day"
+            (focus)="onFocusSelect('day')"
+            (change)="onDaySelect($event)"
+            [selectOnTab]="true"
+          >
+          </ng-select>
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            isSubmitted &&
+            (userFormControl.birthDate.controls.year.errors ||
+              userFormControl.birthDate.controls.month.errors ||
+              userFormControl.birthDate.controls.day.errors)
+          "
+        >
+          <sup>*</sup>Field is required.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="isSubmitted && form.errors?.['birthDate'] && !userFormControl.birthDate.controls.year.errors &&
+          !userFormControl.birthDate.controls.month.errors &&
+          !userFormControl.birthDate.controls.day.errors"
+        >
+          <sup>*</sup>You can't select future date.
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Submit</button>
+    <a routerLink="/" class="btn btn-danger">Cancel</a>
+  </div>
+</form>
+<app-modal id="add-edit-user-form-modal">
+  <h2 class="text-center">Confirm your submission.</h2>
+  <div class="row g-2">
+    <button class="col-5 btn btn-primary" (click)="onModalConfirm()">
+      Confirm
+    </button>
+    <button class="offset-2 col-5 btn btn-secondary" (click)="onModalCancel()">
+      Cancel
+    </button>
+  </div>
+</app-modal>

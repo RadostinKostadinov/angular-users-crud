@@ -1,0 +1,47 @@
+app-modal {
+  display: none;
+
+  .custom-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 10000;
+
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+
+    overflow: auto;
+  }
+
+  .custom-modal-body {
+    padding: 20px;
+    background: #fff;
+  }
+}
+
+body.custom-modal-open {
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1024px) {
+  #add-edit-user-form-modal > div.custom-modal > div.custom-modal-body {
+    width: 30%;
+    margin: 0 auto;
+  }
+
+  #delete-user-modal > div.custom-modal > div.custom-modal-body {
+    width: 30%;
+    margin: 0 auto;
+
+    span {
+      font-size: 20px;
+      border: 1px solid black;
+      display: block;
+      padding: 4px;
+    }
+
+    div {
+      margin-top: 20px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.table-users-row td {
+  vertical-align: middle;
+}
+
+table {
+  user-select: none;
+
+  @media screen and (max-width: 1024px) {
+    tr {
+      min-height: 6em;
+      height: 6em;
+    }
+  }
+}
